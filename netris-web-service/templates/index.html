@@ -1,0 +1,75 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .upload-field {
+      border: 2px dashed gray;
+      background-color: lightgray;
+      width: 1500px;
+      height: 800px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 15px auto;
+    }
+
+    .json-table {
+      background-color: lightblue;
+      margin: 15px auto;
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div class="upload-field">
+    <h4>Upload Video</h4><br>
+    <input type="file" >
+  </div>
+
+  <table class="table json-table">
+    <thead>
+      <tr>
+        <th scope="col">Id события</th>
+        <th scope="col">Класс техники</th>
+        <th scope="col">Timestamp начала</th>
+        <th scope="col">Timestamp конца</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td>Грузовик</td>
+        <td>02:12:01 06-06-2023</td>
+        <td>02:25:06 06-06-2023</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>Трактор</td>
+        <td>02:12:01 06-06-2023</td>
+        <td>02:25:06 06-06-2023</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td>Кран</td>
+        <td>12:16:16 07-06-2023</td>
+        <td>17:26:12 07-06-2023</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="text-center">
+    <button class="btn btn-primary">Export JSON</button>
+  </div>
+
+  <!-- Include Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+

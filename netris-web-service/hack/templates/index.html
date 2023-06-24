@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to My Django App</title>
+</head>
+<body>
+    <!-- Video Uploader -->
+    <div>
+        <h2>Video Uploader</h2>
+        <input type="file" id="videoUploader" accept="video/*">
+        <div id="videoContainer"></div>
+    </div>
+
+    <!-- JSON Upload -->
+    <div>
+        <h2>JSON Upload</h2>
+        <input type="file" id="jsonUploader" accept=".json">
+        <button id="jsonUploadBtn">Upload JSON</button>
+    </div>
+
+    <!-- JSON Table -->
+    <div>
+        <h2>JSON Content</h2>
+        <table id="jsonTable">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody id="jsonTableBody">
+                <!-- JSON content will be inserted dynamically here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Code to handle video upload and display
+        var videoUploader = document.getElementById('videoUploader');
+        var videoContainer = document.getElementById('videoContainer');
+
+        videoUploader.addEventListener('change', function(event) {
+            var file = event.target.files[0];
+            var videoURL = URL.createObjectURL(file);
+            var videoElement = document.createElement('video');
+            videoElement.src = videoURL;
+            videoElement.controls = true;
+            videoContainer.innerHTML = '';
+            videoContainer.appendChild(videoElement);
+        });
+
+        // Code to handle JSON upload and display
+        var jsonUploader = document.getElementById('jsonUploader');
+        var jsonUploadBtn = document.getElementById('jsonUploadBtn');
+        var jsonTableBody = document.getElementById('jsonTableBody');
+
+        jsonUploadBtn.addEventListener('click', function() {
+            var file = jsonUploader.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+                var jsonContent = event.target.result;
+                var data = JSON.parse(jsonContent);
+                jsonTableBody.innerHTML = '';
+
+                for (var key in data) {
+                    var row = document.createElement('tr');
+                    var keyCell = document.createElement('td');
+                    var valueCell = document.createElement('td');
+                    keyCell.textContent = key;
+                    valueCell.textContent = data[key];
+                    row.appendChild(keyCell);
+                    row.appendChild(valueCell);
+                    jsonTableBody.appendChild(row);
+                }
+            };
+
+            reader.readAsText(file);
+        });
+    </script>
+</body>
+</html>
