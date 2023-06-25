@@ -8,4 +8,5 @@
 
 # Важные ссылки
  Object Tracker: https://colab.research.google.com/drive/1mZCWNWhydNg-ojlSTItSvOathZhvbTwk?usp=sharing
- Video Result: 
+ 
+ Video Result: https://youtu.be/peNvtvk0lPE
